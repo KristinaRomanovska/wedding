@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>З річницею, найрідніші!</title>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes backgroundShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(-45deg, #fceabb, #f8b500, #ffecd2, #fcb69f);
+            background-size: 400% 400%;
+            animation: backgroundShift 15s ease infinite;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header, .content, .footer, .gallery-title {
+            animation: fadeIn 2s ease forwards;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-weight: normal;
+            font-size: 1.5em;
+            margin-top: 0;
+        }
+
+        .content {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .quote {
+            font-style: italic;
+            margin: 30px 0;
+            color: #666;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #444;
+        }
+
+        /* Галерея */
+        .gallery-title {
+            margin-top: 60px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .gallery img {
+            width: 250px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Анімовані сердечка */
+        .heart {
+            position: fixed;
+            top: -50px;
+            width: 20px;
+            height: 20px;
+            background: red;
+            transform: rotate(45deg);
+            animation: fall 10s linear infinite;
+            opacity: 0.7;
+        }
+
+        .heart::before, .heart::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: red;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: -10px;
+            top: 0;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(45deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(100vh) rotate(45deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>З 20-річчям подружнього життя!</h1>
+    <h2>Дорогі мама й тато, вітаємо вас із порцеляновим весіллям!</h2>
+</header>
+
+<div class="content">
+    <p>Сьогодні — особливий день. 20 років тому ви сказали одне одному "так", і з того моменту створили чудову сім'ю, наповнену любов’ю, турботою та щастям.</p>
+
+    <p>Ваше кохання — це приклад, який надихає. Ви пройшли через радощі й випробування, завжди підтримуючи один одного, і залишаєтеся такими ж закоханими, як і на початку.</p>
+
+    <div class="quote">"Любов — це не тоді, коли дивляться одне на одного, а коли дивляться в одному напрямку." — Антуан де Сент-Екзюпері</div>
+
+    <p>Нехай ваше життя і надалі буде наповнене теплом, гармонією і світлом. Ми вас дуже любимо і пишаємося вами!</p>
+
+    <p>З любов'ю,<br>Ваші кузочки 💛</p>
+</div>
+
+<div class="gallery-title">
+    <h2>Наші сімейні миті 💖</h2>
+</div>
+<div class="gallery">
+    <img src="photo1.jpg" alt="Сімейне фото 1">
+    <img src="photo2.jpg" alt="Сімейне фото 2">
+    <img src="photo3.jpg" alt="Сімейне фото 3">
+    <img src="photo4.jpg" alt="Сімейне фото 4">
+</div>
+
+<div class="footer">
+    <p>Дата: 6 серпня 2025 року</p>
+</div>
+
+<!-- Сердечка -->
+<script>
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = Math.random() * window.innerWidth + 'px';
+        heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 10000);
+    }
+    setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>
